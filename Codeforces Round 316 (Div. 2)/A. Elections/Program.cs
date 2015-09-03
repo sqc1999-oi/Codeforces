@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+
+namespace A.Elections
+{
+	class TextReaderHelper
+	{
+		protected TextReader baseReader;
+		protected LinkedList<string> buffer;
+
+		public TextReaderHelper(TextReader baseReader)
+		{
+			this.baseReader = baseReader;
+			buffer = new LinkedList<string>();
+		}
+
+		protected void readIfEmpty()
+		{
+			if (buffer.Count > 0) return;
+			string line;
+			do
+			{
+				line = baseReader.ReadLine();
+				if (line == null) return;
+			}
+			while (line.Trim() == string.Empty);
+			foreach (var item in line.Split(' ', '\n', '\t'))
+				if (item != string.Empty)
+					buffer.AddLast(item);
+		}
+
+		private object readChar()
+		{
+			var node = buffer.First;
+			var ret = node.Value[0];
+			if (node.Value.Length > 1) node.Value = node.Value.Substring(1);
+			else buffer.RemoveFirst();
+			return ret;
+		}
+
+		public T NextElement<T>()
+		{
+			readIfEmpty();
+			if (typeof(T) == typeof(char)) return (T)readChar();
+			var ret = (T)Convert.ChangeType(buffer.First.Value, typeof(T));
+			buffer.RemoveFirst();
+			return ret;
+		}
+
+		public int NextInt() { return NextElement<int>(); }
+
+		public string NextString() { return NextElement<string>(); }
+	}
+
+	class Program
+	{
+		[Conditional("DEBUG")]
+		private static void Pause()
+		{
+			Console.ReadKey();
+		}
+
+		static void Main(string[] args)
+		{
+			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(10240), Encoding.ASCII, false, 10240));
+			var writer = new StreamWriter(Console.OpenStandardOutput(10240), Encoding.ASCII, 10240);
+			int n = reader.NextInt(), m = reader.NextInt();
+			int[] votes = new int[n + 1];
+			int gMax = -1, gIndex = 0;
+			for (int i = 1; i <= m; i++)
+			{
+				int max = -1, index = 0;
+				for (int j = 1; j <= n; j++)
+				{
+					int x = reader.NextInt();
+					if (x > max)
+					{
+						max = x;
+						index = j;
+					}
+				}
+				++votes[index];
+				if (votes[index] > gMax || (votes[index] == gMax && index < gIndex))
+				{
+					gMax = votes[index];
+					gIndex = index;
+				}
+			}
+			writer.WriteLine(gIndex);
+			writer.Flush();
+			Pause();
+		}
+	}
+}
