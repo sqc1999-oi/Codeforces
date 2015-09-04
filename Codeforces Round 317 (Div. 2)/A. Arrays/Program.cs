@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace B.Simple_Game
+namespace A.Arrays
 {
 	class TextReaderHelper
 	{
@@ -67,10 +67,12 @@ namespace B.Simple_Game
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int n = reader.NextInt(), m = reader.NextInt();
-			if (n == 1) writer.WriteLine(1);
-			else if (n - m <= m - 1) writer.WriteLine(m - 1);
-			else writer.WriteLine(m + 1);
+			int Na = reader.NextInt(), Nb = reader.NextInt(), k = reader.NextInt(), m = reader.NextInt();
+			var A = new int[Na + 1];
+			var B = new int[Nb + 1];
+			for (int i = 1; i <= Na; i++) A[i] = reader.NextInt();
+			for (int i = 1; i <= Nb; i++) B[i] = reader.NextInt();
+			writer.WriteLine(A[k] < B[Nb - m + 1] ? "YES" : "NO");
 			writer.Flush();
 			Pause();
 		}

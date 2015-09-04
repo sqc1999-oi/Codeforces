@@ -65,8 +65,8 @@ namespace C.Replacement
 
 		static void Main(string[] args)
 		{
-			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(10240), Encoding.ASCII, false, 10240));
-			var writer = new StreamWriter(Console.OpenStandardOutput(10240), Encoding.ASCII, 10240);
+			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
+			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
 			int n = reader.NextInt(), m = reader.NextInt();
 			var s = new StringBuilder(' ' + reader.NextString() + ' ');
 			int len = 0, cnt = 0;

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace B.Simple_Game
+namespace B.Order_Book
 {
 	class TextReaderHelper
 	{
@@ -55,6 +55,14 @@ namespace B.Simple_Game
 		public string NextString() { return NextElement<string>(); }
 	}
 
+	class BuyComparer : IComparer<int>
+	{
+		public int Compare(int x, int y)
+		{
+			return y.CompareTo(x);
+		}
+	}
+
 	class Program
 	{
 		[Conditional("DEBUG")]
@@ -67,10 +75,27 @@ namespace B.Simple_Game
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int n = reader.NextInt(), m = reader.NextInt();
-			if (n == 1) writer.WriteLine(1);
-			else if (n - m <= m - 1) writer.WriteLine(m - 1);
-			else writer.WriteLine(m + 1);
+			int n = reader.NextInt(), s = reader.NextInt();
+			var B = new SortedDictionary<int, int>(new BuyComparer());
+			var S = new SortedDictionary<int, int>();
+			for (int i = 1; i <= n; i++)
+			{
+				SortedDictionary<int, int> Now;
+				if (reader.NextString() == "B") Now = B;
+				else Now = S;
+				int p = reader.NextInt(), q;
+				Now.TryGetValue(p, out q);
+				Now[p] = q + reader.NextInt();
+			}
+			var Emtr = S.GetEnumerator();
+			var stack = new Stack<string>();
+			for (int i = 1; i <= s && Emtr.MoveNext(); i++)
+				stack.Push(string.Format("S {0} {1}", Emtr.Current.Key, Emtr.Current.Value));
+			while (stack.Count > 0)
+				writer.WriteLine(stack.Pop());
+			Emtr = B.GetEnumerator();
+			for (int i = 1; i <= s && Emtr.MoveNext(); i++)
+				writer.WriteLine("B {0} {1}", Emtr.Current.Key, Emtr.Current.Value);
 			writer.Flush();
 			Pause();
 		}

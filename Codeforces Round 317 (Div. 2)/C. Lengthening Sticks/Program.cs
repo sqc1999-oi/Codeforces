@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace B.Simple_Game
+namespace C.Lengthening_Sticks
 {
 	class TextReaderHelper
 	{
@@ -63,16 +63,28 @@ namespace B.Simple_Game
 			Console.ReadKey();
 		}
 
+		static long Calc(int a, int b, int c, int l)
+		{
+			if (a < b + c) return 0;
+			l = Math.Min(a - b - c, l);
+			return (long)(l + 1) * (l + 2) / 2;
+		}
+
 		static void Main(string[] args)
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int n = reader.NextInt(), m = reader.NextInt();
-			if (n == 1) writer.WriteLine(1);
-			else if (n - m <= m - 1) writer.WriteLine(m - 1);
-			else writer.WriteLine(m + 1);
+			int a = reader.NextInt(), b = reader.NextInt(), c = reader.NextInt(), l = reader.NextInt();
+			long ans = (long)(l + 1) * (l + 2) * (l + 3) / 6;
+			for (int i = 0; i <= l; i++)
+			{
+				ans -= Calc(a + i, b, c, l - i);
+				ans -= Calc(b + i, a, c, l - i);
+				ans -= Calc(c + i, a, b, l - i);
+			}
+			writer.WriteLine(ans);
 			writer.Flush();
 			Pause();
-		}
+        }
 	}
 }

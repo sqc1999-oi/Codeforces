@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace B.Simple_Game
+namespace C.Geometric_Progression
 {
 	class TextReaderHelper
 	{
@@ -65,12 +67,32 @@ namespace B.Simple_Game
 
 		static void Main(string[] args)
 		{
-			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
-			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int n = reader.NextInt(), m = reader.NextInt();
-			if (n == 1) writer.WriteLine(1);
-			else if (n - m <= m - 1) writer.WriteLine(m - 1);
-			else writer.WriteLine(m + 1);
+			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(10240), Encoding.ASCII, false, 10240));
+			var writer = new StreamWriter(Console.OpenStandardOutput(10240), Encoding.ASCII, 10240);
+			int n = reader.NextInt(), k = reader.NextInt();
+			var Dic = new Dictionary<long, long>();
+			var Count = new long[n + 1];
+			var a = new long[n + 1];
+			for (int i = 1; i <= n; i++) a[i] = reader.NextInt();
+			for (int i = 1; i <= n; i++)
+			{
+				if (a[i] % k == 0)
+					Dic.TryGetValue(a[i] / k, out Count[i]);
+				long x;
+				Dic.TryGetValue(a[i], out x);
+				Dic[a[i]] = x + 1;
+			}
+			Dic.Clear();
+			long Ans = 0;
+			for (int i = n; i > 0; i--)
+			{
+				long x;
+				Dic.TryGetValue(a[i] * k, out x);
+				Ans += Count[i] * x;
+				Dic.TryGetValue(a[i], out x);
+				Dic[a[i]] = x + 1;
+			}
+			writer.WriteLine(Ans);
 			writer.Flush();
 			Pause();
 		}
