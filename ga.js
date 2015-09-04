@@ -1,4 +1,3 @@
-document.cookie="myVal=123"
 var s = document.cookie.split(";");
 for (var i = 0; i < s.length; i++) {
 	var ss = s[i].split("=");
