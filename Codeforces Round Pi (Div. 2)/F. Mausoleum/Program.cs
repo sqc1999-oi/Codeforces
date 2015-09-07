@@ -97,7 +97,7 @@ namespace F.Mausoleum
 			if (f[l, r] == -1)
 			{
 				f[l, r] = 0;
-				if (l+1==r)
+				if (l + 1 == r)
 				{
 					if (check(l, r, l, r))
 						f[l, r]++;
@@ -122,7 +122,7 @@ namespace F.Mausoleum
 			return true;
 		}
 
-		static int getFlag(int l, int r,int a,int b, int x)
+		static int getFlag(int l, int r, int a, int b, int x)
 		{
 			if (x < l || x > r) return -1;
 			if (x == a || x == b) return 0;
