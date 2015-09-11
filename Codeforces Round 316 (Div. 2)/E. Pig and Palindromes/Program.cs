@@ -8,56 +8,57 @@ using System.Threading.Tasks;
 
 namespace E.Pig_and_Palindromes
 {
+	class TextReaderHelper
+	{
+		protected TextReader BaseReader;
+		protected LinkedList<string> Buffer;
+
+		public TextReaderHelper(TextReader baseReader)
+		{
+			this.BaseReader = baseReader;
+			Buffer = new LinkedList<string>();
+		}
+
+		protected void ReadIfEmpty()
+		{
+			if (Buffer.Count > 0) return;
+			string line;
+			do
+			{
+				line = BaseReader.ReadLine();
+				if (line == null) return;
+			}
+			while (line.Trim() == string.Empty);
+			foreach (var item in line.Split(' ', '\n', '\t'))
+				if (item != string.Empty)
+					Buffer.AddLast(item);
+		}
+
+		private object ReadChar()
+		{
+			var node = Buffer.First;
+			var ret = node.Value[0];
+			if (node.Value.Length > 1) node.Value = node.Value.Substring(1);
+			else Buffer.RemoveFirst();
+			return ret;
+		}
+
+		public T NextElement<T>()
+		{
+			ReadIfEmpty();
+			if (typeof(T) == typeof(char)) return (T)ReadChar();
+			var ret = (T)Convert.ChangeType(Buffer.First.Value, typeof(T));
+			Buffer.RemoveFirst();
+			return ret;
+		}
+
+		public int NextInt() { return NextElement<int>(); }
+
+		public string NextString() { return NextElement<string>(); }
+	}
+
 	class Program
 	{
-		class TextReaderHelper
-		{
-			protected TextReader BaseReader;
-			protected LinkedList<string> Buffer;
-
-			public TextReaderHelper(TextReader baseReader)
-			{
-				this.BaseReader = baseReader;
-				Buffer = new LinkedList<string>();
-			}
-
-			protected void ReadIfEmpty()
-			{
-				if (Buffer.Count > 0) return;
-				string line;
-				do
-				{
-					line = BaseReader.ReadLine();
-					if (line == null) return;
-				}
-				while (line.Trim() == string.Empty);
-				foreach (var item in line.Split(' ', '\n', '\t'))
-					if (item != string.Empty)
-						Buffer.AddLast(item);
-			}
-
-			private object ReadChar()
-			{
-				var node = Buffer.First;
-				var ret = node.Value[0];
-				if (node.Value.Length > 1) node.Value = node.Value.Substring(1);
-				else Buffer.RemoveFirst();
-				return ret;
-			}
-
-			public T NextElement<T>()
-			{
-				ReadIfEmpty();
-				if (typeof(T) == typeof(char)) return (T)ReadChar();
-				var ret = (T)Convert.ChangeType(Buffer.First.Value, typeof(T));
-				Buffer.RemoveFirst();
-				return ret;
-			}
-
-			public int NextInt() { return NextElement<int>(); }
-
-			public string NextString() { return NextElement<string>(); }
-		}
 
 		[Conditional("DEBUG")]
 		static void Pause()
@@ -70,14 +71,14 @@ namespace E.Pig_and_Palindromes
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
 			int n = reader.NextInt(), m = reader.NextInt();
-			var map = new char[n+1, m+1];
+			var map = new char[n + 1, m + 1];
 			for (int i = 1; i <= n; i++)
 			{
 				string line = reader.NextString();
 				for (int j = 1; j <= m; j++)
 					map[i, j] = line[j - 1];
 			}
-			var f = new int[2, n+2, n+2];
+			var f = new int[2, n + 2, n + 2];
 			const int M = (int)1e9 + 7;
 			int cur = 1;
 			if (map[1, 1] == map[n, m]) f[1, 1, n] = 1;

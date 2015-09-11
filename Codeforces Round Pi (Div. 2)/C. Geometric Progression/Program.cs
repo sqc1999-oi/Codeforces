@@ -72,8 +72,7 @@ namespace C.Geometric_Progression
 			int n = reader.NextInt(), k = reader.NextInt();
 			var Dic = new Dictionary<long, long>();
 			var Count = new long[n + 1];
-			var a = new long[n + 1];
-			for (int i = 1; i <= n; i++) a[i] = reader.NextInt();
+			var a = (from i in Enumerable.Range(0, n + 1) select i == 0 ? 0 : reader.NextElement<long>()).ToArray();
 			for (int i = 1; i <= n; i++)
 			{
 				if (a[i] % k == 0)

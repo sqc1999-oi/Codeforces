@@ -70,9 +70,8 @@ namespace A.Lineland_Mail
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(10240), Encoding.ASCII, false, 10240));
 			var writer = new StreamWriter(Console.OpenStandardOutput(10240), Encoding.ASCII, 10240);
 			int n = reader.NextInt();
-			var x = new int[n + 1];
-			for (int i = 1; i <= n; i++) x[i] = reader.NextInt();
-			writer.WriteLine("{0} {1}", x[2]-x[1], x[n]-x[1]);
+			var x = (from i in Enumerable.Range(0, n + 1) select i == 0 ? 0 : reader.NextInt()).ToArray();
+			writer.WriteLine("{0} {1}", x[2] - x[1], x[n] - x[1]);
 			for (int i = 2; i < n; i++)
 				writer.WriteLine("{0} {1}", Math.Min(x[i] - x[i - 1], x[i + 1] - x[i]), Math.Max(x[i] - x[1], x[n] - x[i]));
 			writer.WriteLine("{0} {1}", x[n] - x[n - 1], x[n] - x[1]);

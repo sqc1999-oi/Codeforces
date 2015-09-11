@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace D.Minimization
 {
@@ -77,8 +76,7 @@ namespace D.Minimization
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
 			int n = reader.NextInt(), k = reader.NextInt();
-			var a = new int[n + 1];
-			for (int i = 1; i <= n; i++) a[i] = reader.NextInt();
+			var a = (from i in Enumerable.Range(0, n + 1) select i == 0 ? 0 : reader.NextInt()).ToArray();
 			Array.Sort(a, 1, n);
 			int x = n % k, y = k - n % k;
 			var f = new int[x + 1, y + 1];
