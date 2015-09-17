@@ -8,54 +8,54 @@ using System.Threading.Tasks;
 
 namespace A.Lineland_Mail
 {
-	class TextReaderHelper
+class TextReaderHelper
+	{
+		protected TextReader baseReader;
+		protected LinkedList<string> buffer;
+
+		public TextReaderHelper(TextReader baseReader)
 		{
-			protected TextReader baseReader;
-			protected LinkedList<string> buffer;
-
-			public TextReaderHelper(TextReader baseReader)
-			{
-				this.baseReader = baseReader;
-				buffer = new LinkedList<string>();
-			}
-
-			protected void readIfEmpty()
-			{
-				if (buffer.Count > 0) return;
-				string line;
-				do
-				{
-					line = baseReader.ReadLine();
-					if (line == null) return;
-				}
-				while (line.Trim() == string.Empty);
-				foreach (var item in line.Split(' ', '\n', '\t'))
-					if (item != string.Empty)
-						buffer.AddLast(item);
-			}
-
-			private object readChar()
-			{
-				var node = buffer.First;
-				var ret = node.Value[0];
-				if (node.Value.Length > 1) node.Value = node.Value.Substring(1);
-				else buffer.RemoveFirst();
-				return ret;
-			}
-
-			public T NextElement<T>()
-			{
-				readIfEmpty();
-				if (typeof(T) == typeof(char)) return (T)readChar();
-				var ret = (T)Convert.ChangeType(buffer.First.Value, typeof(T));
-				buffer.RemoveFirst();
-				return ret;
-			}
-
-			public int NextInt() { return NextElement<int>(); }
-
-			public string NextString() { return NextElement<string>(); }
+			this.baseReader = baseReader;
+			buffer = new LinkedList<string>();
 		}
+
+		protected void readIfEmpty()
+		{
+			if (buffer.Count > 0) return;
+			string line;
+			do
+			{
+				line = baseReader.ReadLine();
+				if (line == null) return;
+			}
+			while (line.Trim() == string.Empty);
+			foreach (var item in line.Split(' ', '\n', '\t'))
+				if (item != string.Empty)
+					buffer.AddLast(item);
+		}
+
+		private object readChar()
+		{
+			var node = buffer.First;
+			var ret = node.Value[0];
+			if (node.Value.Length > 1) node.Value = node.Value.Substring(1);
+			else buffer.RemoveFirst();
+			return ret;
+		}
+
+		public T NextElement<T>()
+		{
+			readIfEmpty();
+			if (typeof(T) == typeof(char)) return (T)readChar();
+			var ret = (T)Convert.ChangeType(buffer.First.Value, typeof(T));
+			buffer.RemoveFirst();
+			return ret;
+		}
+
+		public int NextInt() { return NextElement<int>(); }
+
+		public string NextString() { return NextElement<string>(); }
+	}
 
 	class Program
 	{

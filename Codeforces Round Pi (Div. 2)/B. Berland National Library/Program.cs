@@ -72,7 +72,8 @@ namespace B.Berland_National_Library
 			int n = reader.NextInt();
 			var In = new bool[1000001];
 			var StartCount = 0;
-			var Count = new int[n + 1];
+			int Count = 0;
+			int Max = int.MinValue;
 			for (int i = 1; i <= n; i++)
 			{
 				string s = reader.NextString();
@@ -80,17 +81,18 @@ namespace B.Berland_National_Library
 				if (s == "+")
 				{
 					In[r] = true;
-					Count[i] = Count[i - 1] + 1;
+					Count++;
+					Max = Math.Max(Max, Count);
 				}
 				else if (s == "-")
 				{
 					if (!In[r])
 						StartCount++;
 					In[r] = false;
-					Count[i] = Count[i - 1] - 1;
+					Count--;
 				}
 			}
-			writer.WriteLine(Count.Max() + StartCount);
+			writer.WriteLine(Count + StartCount);
 			writer.Flush();
 			Pause();
 		}
