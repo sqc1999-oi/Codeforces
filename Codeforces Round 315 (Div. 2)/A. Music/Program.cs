@@ -67,14 +67,7 @@ namespace A.Music
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int t = reader.NextInt(), s = reader.NextInt(), q = reader.NextInt();
-			int ans = 0;
-			while (s < t)
-			{
-				s *= q;
-				ans++;
-			}
-			writer.WriteLine(ans);
+			writer.WriteLine(Math.Ceiling(Math.Log((double)reader.NextInt()/reader.NextInt(), reader.NextInt())));
 			writer.Flush();
 			Pause();
 		}
