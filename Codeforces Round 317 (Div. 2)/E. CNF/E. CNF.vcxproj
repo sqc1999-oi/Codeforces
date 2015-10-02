@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{11D89090-B82D-4E67-97F0-E94C6EF73EC0}</ProjectGuid>
-    <RootNamespace>ECNF2</RootNamespace>
+    <ProjectGuid>{0F50AD1C-6B2E-4CCB-A994-A7B66ACE97E3}</ProjectGuid>
+    <RootNamespace>ECNF</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
