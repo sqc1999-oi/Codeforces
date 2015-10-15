@@ -72,9 +72,10 @@ namespace E.Points_on_Plane
 					select new { X = reader.NextInt(), Y = reader.NextInt(), Id = i } into j
 					group j by (j.Y - 1) / 1000 into k
 					orderby k.Key
-					select from l in k
-						   orderby k.Key % 2 == 0 ? l.X : -l.X
-						   select l.Id;
+					select
+						from l in k
+						orderby k.Key % 2 == 0 ? l.X : -l.X
+						select l.Id;
 			foreach (var i in a)
 				foreach (var j in i)
 					writer.Write("{0} ", j);
