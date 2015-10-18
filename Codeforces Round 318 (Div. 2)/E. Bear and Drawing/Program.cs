@@ -75,7 +75,7 @@ namespace E.Bear_and_Drawing
 			for (int i = 1; i < n; i++)
 			{
 				int a = reader.NextInt(), b = reader.NextInt();
-				G[a].AddLast(b); //asdf
+				G[a].AddLast(b);
 				G[b].AddLast(a);
 			}
 			var del = new bool[n + 1];

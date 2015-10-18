@@ -4,7 +4,6 @@ using namespace std;
 int h[100001], res[100001];
 int main()
 {
-	int i = 0;
 	ios::sync_with_stdio(false);
 	int n;
 	cin >> n;
