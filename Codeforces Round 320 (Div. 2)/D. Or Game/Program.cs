@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Linq;
 
-namespace C.A_Problem_about_Polyline
+namespace D.Or_Game
 {
 	class TextReaderHelper
 	{
@@ -68,13 +68,20 @@ namespace C.A_Problem_about_Polyline
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int a = reader.NextInt(), b = reader.NextInt();
-			if (b > a) writer.WriteLine(-1);
-			else
-			{
-				int k = (a + b) / (2 * b);
-				writer.WriteLine(((double)(a + b) / (2 * k)).ToString(new CultureInfo("zh-cn")));
-			}
+			int n = reader.NextInt(), k = reader.NextInt(), x = reader.NextInt();
+			var a = new long[n + 1];
+			for (int i = 1; i <= n; i++)
+				a[i] = reader.NextInt();
+			var pre = new long[n + 1];
+			for (int i = 1; i <= n; i++)
+				pre[i] = pre[i - 1] | a[i];
+			var suf = new long[n + 2];
+			for (int i = n; i > 0; i--)
+				suf[i] = suf[i + 1] | a[i];
+			long max = 0;
+			for (int i = 1; i <= n; i++)
+				max = Math.Max(max, pre[i - 1] | a[i] * (long)Math.Pow(x, k) | suf[i + 1]);
+			writer.WriteLine(max);
 			writer.Flush();
 			Pause();
 		}

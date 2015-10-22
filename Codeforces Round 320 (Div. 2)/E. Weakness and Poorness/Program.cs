@@ -5,7 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace C.A_Problem_about_Polyline
+namespace E.Weakness_and_Poorness
 {
 	class TextReaderHelper
 	{
@@ -68,13 +68,30 @@ namespace C.A_Problem_about_Polyline
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int a = reader.NextInt(), b = reader.NextInt();
-			if (b > a) writer.WriteLine(-1);
-			else
+			int n = reader.NextInt();
+			var a = new int[n + 1];
+			for (int i = 1; i <= n; i++)
+				a[i] = reader.NextInt();
+			Func<double, bool, double> f = (x, flag) =>
+			 {
+				 double ans = 0, sum = 0;
+				 for (int i = 1; i <= n; i++)
+				 {
+					 sum += flag ? (a[i] - x) : (x - a[i]);
+					 sum = Math.Max(sum, 0);
+					 ans = Math.Max(ans, sum);
+				 }
+				 return ans;
+			 };
+			const double eps = 1e-12;
+			double l = -1e4, r = 1e4;
+			while (Math.Abs(l - r) > eps)
 			{
-				int k = (a + b) / (2 * b);
-				writer.WriteLine(((double)(a + b) / (2 * k)).ToString(new CultureInfo("zh-cn")));
+				double mid = (l + r) / 2;
+				if (f(mid, true) > f(mid, false)) l = mid;
+				else r = mid;
 			}
+			writer.WriteLine(f(l, false).ToString(new CultureInfo("zh-cn")));
 			writer.Flush();
 			Pause();
 		}

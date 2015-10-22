@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace C.A_Problem_about_Polyline
+namespace F.LCS_Again
 {
 	class TextReaderHelper
 	{
@@ -68,15 +67,13 @@ namespace C.A_Problem_about_Polyline
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int a = reader.NextInt(), b = reader.NextInt();
-			if (b > a) writer.WriteLine(-1);
-			else
+			int n = reader.NextInt(), m = reader.NextInt();
+			var s = reader.NextString();
+			var f = new int[n, 3, 2];
+			for (int i = 0; i < n; i++)
 			{
-				int k = (a + b) / (2 * b);
-				writer.WriteLine(((double)(a + b) / (2 * k)).ToString(new CultureInfo("zh-cn")));
+
 			}
-			writer.Flush();
-			Pause();
 		}
 	}
 }
