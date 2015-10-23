@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A. Kefa and First Steps", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B. Kefa and Company", "B. Kefa and Company\B. Kefa and Company.csproj", "{168CEFE1-E30B-44A3-82B2-88FF53705FD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D. Kefa and Dishes", "D. Kefa and Dishes\D. Kefa and Dishes.csproj", "{0FC40C34-EB40-4FAB-AC82-968D5BA8A991}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{168CEFE1-E30B-44A3-82B2-88FF53705FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{168CEFE1-E30B-44A3-82B2-88FF53705FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{168CEFE1-E30B-44A3-82B2-88FF53705FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC40C34-EB40-4FAB-AC82-968D5BA8A991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC40C34-EB40-4FAB-AC82-968D5BA8A991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC40C34-EB40-4FAB-AC82-968D5BA8A991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC40C34-EB40-4FAB-AC82-968D5BA8A991}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
