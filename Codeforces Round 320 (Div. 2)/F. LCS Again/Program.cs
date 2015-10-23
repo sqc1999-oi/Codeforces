@@ -68,12 +68,22 @@ namespace F.LCS_Again
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
 			int n = reader.NextInt(), m = reader.NextInt();
-			var s = reader.NextString();
-			var f = new int[n, 3, 2];
-			for (int i = 0; i < n; i++)
-			{
-
-			}
+			var s = reader.NextString() + ' ';
+			long ans = 0;
+			for (int i = 1; i < s.Length; i++)
+				if (s[i] != s[i - 1])
+					ans += n * (m - 1);
+			for (int i = 1, cnt = 1; i < s.Length; i++)
+				if (cnt == 1) { if (s[i] != s[i - 1]) cnt++; }
+				else if (s[i] == s[i - 2]) cnt++;
+				else
+				{
+					ans -= (long)cnt * (cnt - 1) / 2;
+					cnt = s[i] == s[i - 1] ? 1 : 2;
+				}
+			writer.WriteLine(ans);
+			writer.Flush();
+			Pause();
 		}
 	}
 }
