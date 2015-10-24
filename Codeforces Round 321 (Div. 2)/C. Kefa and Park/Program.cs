@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace D.Kefa_and_Dishes
+namespace C.Kefa_and_Park
 {
 	class TextReaderHelper
 	{
@@ -67,39 +67,30 @@ namespace D.Kefa_and_Dishes
 		{
 			var reader = new TextReaderHelper(new StreamReader(Console.OpenStandardInput(), Encoding.ASCII, false, 1048576));
 			var writer = new StreamWriter(Console.OpenStandardOutput(), Encoding.ASCII, 1048576);
-			int n = reader.NextInt(), m = reader.NextInt(), K = reader.NextInt();
-			var a = new int[n];
-			for (int i = 0; i < n; i++)
-				a[i] = reader.NextInt();
-			var rule = new int[n, n];
-			for (int i = 1; i <= K; i++)
-				rule[reader.NextInt() - 1, reader.NextInt() - 1] = reader.NextInt();
-			var f = new long[1 << n, n];
-			long ans = 0;
-			for (int i = 0; i < n; i++)
+			int n = reader.NextInt(), m = reader.NextInt();
+			var a = new bool[n + 1];
+			for (int i = 1; i <= n; i++)
+				a[i] = reader.NextInt() == 1;
+			var Graph = new LinkedList<int>[n + 1];
+			for (int i = 1; i <= n; i++) Graph[i] = new LinkedList<int>();
+			for (int i = 1; i < n; i++)
 			{
-				f[1 << i, i] = a[i];
-				if (m == 1) ans = Math.Max(ans, a[i]);
+				int x = reader.NextInt(), y = reader.NextInt();
+				Graph[x].AddLast(y);
+				Graph[y].AddLast(x);
 			}
-			for (int i = 2; i < (1 << n); i++)
+			int ans = 0;
+			Action<int, int, int> dfs = null;
+			dfs = (cur, fa, cnt) =>
 			{
-				int x = i, cnt = 0;
-				while (x > 0)
-				{
-					cnt += x % 2;
-					x /= 2;
-				}
-				if (cnt <= 1 || cnt > m) continue;
-				for (int j = 0; j < n; j++)
-					if ((i & (1 << j)) > 0)
-						for (int k = 0; k < n; k++)
-							if (j != k && (i & (1 << k)) > 0)
-								f[i, k] = Math.Max(f[i, k], f[i - (1 << k), j] + a[k] + rule[j, k]);
-				if (cnt == m)
-					for (int j = 0; j < n; j++)
-						if ((i & (1 << j)) > 0)
-							ans = Math.Max(ans, f[i, j]);
-			}
+				if (cnt > m) return;
+				if (cur != 1 && Graph[cur].Count == 1)
+					ans++;
+				foreach (var i in Graph[cur])
+					if (i != fa)
+						dfs(i, cur, a[i] ? cnt + 1 : 0);
+			};
+			dfs(1, 0, a[1] ? 1 : 0);
 			writer.WriteLine(ans);
 			writer.Flush();
 			Pause();
