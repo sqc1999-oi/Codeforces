@@ -1,10 +1,10 @@
-using System.Reflection;
+ï»¿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// ÓĞ¹Ø³ÌĞò¼¯µÄÒ»°ãĞÅÏ¢ÓÉÒÔÏÂ
-// ¿ØÖÆ¡£¸ü¸ÄÕâĞ©ÌØĞÔÖµ¿ÉĞŞ¸Ä
-// Óë³ÌĞò¼¯¹ØÁªµÄĞÅÏ¢¡£
+// æœ‰å…³ç¨‹åºé›†çš„ä¸€èˆ¬ä¿¡æ¯ç”±ä»¥ä¸‹
+// æ§åˆ¶ã€‚æ›´æ”¹è¿™äº›ç‰¹æ€§å€¼å¯ä¿®æ”¹
+// ä¸ç¨‹åºé›†å…³è”çš„ä¿¡æ¯ã€‚
 [assembly: AssemblyTitle("Primes or Palindromes")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -14,23 +14,23 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-//½« ComVisible ÉèÖÃÎª false ½«Ê¹´Ë³ÌĞò¼¯ÖĞµÄÀàĞÍ
-//¶Ô COM ×é¼ş²»¿É¼û¡£  Èç¹ûĞèÒª´Ó COM ·ÃÎÊ´Ë³ÌĞò¼¯ÖĞµÄÀàĞÍ£¬
-//Çë½«´ËÀàĞÍµÄ ComVisible ÌØĞÔÉèÖÃÎª true¡£
+//å°† ComVisible è®¾ç½®ä¸º false å°†ä½¿æ­¤ç¨‹åºé›†ä¸­çš„ç±»å‹
+//å¯¹ COM ç»„ä»¶ä¸å¯è§ã€‚  å¦‚æœéœ€è¦ä» COM è®¿é—®æ­¤ç¨‹åºé›†ä¸­çš„ç±»å‹ï¼Œ
+//è¯·å°†æ­¤ç±»å‹çš„ ComVisible ç‰¹æ€§è®¾ç½®ä¸º trueã€‚
 [assembly: ComVisible(false)]
 
-// Èç¹û´ËÏîÄ¿Ïò COM ¹«¿ª£¬ÔòÏÂÁĞ GUID ÓÃÓÚÀàĞÍ¿âµÄ ID
+// å¦‚æœæ­¤é¡¹ç›®å‘ COM å…¬å¼€ï¼Œåˆ™ä¸‹åˆ— GUID ç”¨äºç±»å‹åº“çš„ ID
 [assembly: Guid("cff74faa-1c76-4632-987a-ab7304dc07f5")]
 
-// ³ÌĞò¼¯µÄ°æ±¾ĞÅÏ¢ÓÉÏÂÁĞËÄ¸öÖµ×é³É: 
+// ç¨‹åºé›†çš„ç‰ˆæœ¬ä¿¡æ¯ç”±ä¸‹åˆ—å››ä¸ªå€¼ç»„æˆ: 
 //
-//      Ö÷°æ±¾
-//      ´Î°æ±¾
-//      Éú³ÉºÅ
-//      ĞŞ¶©ºÅ
+//      ä¸»ç‰ˆæœ¬
+//      æ¬¡ç‰ˆæœ¬
+//      ç”Ÿæˆå·
+//      ä¿®è®¢å·
 //
-//¿ÉÒÔÖ¸¶¨ËùÓĞÕâĞ©Öµ£¬Ò²¿ÉÒÔÊ¹ÓÃ¡°Éú³ÉºÅ¡±ºÍ¡°ĞŞ¶©ºÅ¡±µÄÄ¬ÈÏÖµ£¬
-// ·½·¨ÊÇ°´ÈçÏÂËùÊ¾Ê¹ÓÃ¡°*¡±: :
+//å¯ä»¥æŒ‡å®šæ‰€æœ‰è¿™äº›å€¼ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨â€œç”Ÿæˆå·â€å’Œâ€œä¿®è®¢å·â€çš„é»˜è®¤å€¼ï¼Œ
+// æ–¹æ³•æ˜¯æŒ‰å¦‚ä¸‹æ‰€ç¤ºä½¿ç”¨â€œ*â€: :
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
