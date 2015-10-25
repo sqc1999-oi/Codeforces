@@ -1,8 +1,9 @@
 #include <iostream>
 #include <algorithm>
 #include <cmath>
+#include <iomanip>
 using namespace std;
-const long double eps = 1e-8l;
+const long double eps = 1e-9l;
 int main()
 {
 	ios::sync_with_stdio(false);
@@ -17,5 +18,5 @@ int main()
 		if (sqrt(nx*nx + ny*ny) / v - mid > eps) l = mid;
 		else r = mid;
 	}
-	cout << l;
+	cout << fixed << setprecision(18) << l;
 }
