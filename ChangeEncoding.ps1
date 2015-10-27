@@ -1,8 +1,9 @@
-foreach ($f in (dir -recurse))
+$Encoding = New-Object System.Text.UTF8Encoding($False)
+foreach ($f in (dir -Recurse))
 {
-    if ($f.extension -eq ".sln" -or $f.extension -eq ".cs" -or $f.extension -eq ".csproj" -or $f.extension -eq ".vcxproj" -or $f.extension -eq ".cpp")
+    if ($f.Extension -eq ".sln" -or $f.Extension -eq ".cs" -or $f.Extension -eq ".csproj" -or $f.Extension -eq ".vcxproj" -or $f.Extension -eq ".cpp")
     {
-        $s=gc $f.fullname
-        sc -path $f.fullname -value $s -encoding utf8
+        $s = [System.IO.File]::ReadAllLines($f.FullName)
+        [System.IO.File]::WriteAllLines($f.FullName, $s, $Encoding)
     }
 }
