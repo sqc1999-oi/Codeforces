@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Asphalting Roads", "Asphalt
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Once Again", "Once Again\Once Again.vcxproj", "{135CD5F2-E70E-4803-AF58-56924FBEC613}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Superior Periodic Subarrays", "Superior Periodic Subarrays\Superior Periodic Subarrays.vcxproj", "{60A4B075-167E-4352-AE15-2A82736325DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{135CD5F2-E70E-4803-AF58-56924FBEC613}.Release|x64.Build.0 = Release|x64
 		{135CD5F2-E70E-4803-AF58-56924FBEC613}.Release|x86.ActiveCfg = Release|Win32
 		{135CD5F2-E70E-4803-AF58-56924FBEC613}.Release|x86.Build.0 = Release|Win32
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Debug|x64.ActiveCfg = Debug|x64
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Debug|x64.Build.0 = Debug|x64
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Debug|x86.Build.0 = Debug|Win32
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Release|x64.ActiveCfg = Release|x64
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Release|x64.Build.0 = Release|x64
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Release|x86.ActiveCfg = Release|Win32
+		{60A4B075-167E-4352-AE15-2A82736325DC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
