@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{40A8D7A0-A275-42E8-BA8D-BD2A8E0A255C}</ProjectGuid>
-    <RootNamespace>GCDTable</RootNamespace>
+    <ProjectGuid>{8E014E71-E039-4561-AB12-67BA2FC5110C}</ProjectGuid>
+    <RootNamespace>RobotsTask</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
