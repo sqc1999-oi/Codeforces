@@ -96,7 +96,7 @@ namespace two_sat
 	int in[200000], res[200000];
 	void add_edge(int u, int v, bool fu, bool fv)
 	{
-		g[u * 2 - fu].push_back(v * 2 - fv);
+		g[u * 2 + 1 - fu].push_back(v * 2 + 1 - fv);
 	}
 	void init(int n, int m)
 	{
@@ -146,8 +146,8 @@ namespace two_sat
 		using namespace tarjan;
 		_init(n, mid);
 		solve(n, g);
-		for (int i = 0; i < n / 2;i++)
-			if (com[i * 2] == com[i * 2 - 1])
+		for (int i = 0; i < n / 2; i++)
+			if (com[i * 2] == com[i * 2 + 1])
 			{
 				_clean(n);
 				return false;
@@ -218,7 +218,7 @@ int main()
 			r = ans = mid - 1;
 			v.clear();
 			for (int i = 0; i < m; i++)
-				if (two_sat::res[i * 2 - 1])
+				if (two_sat::res[i * 2])
 					v.push_back(i);
 		}
 		else l = mid + 1;
