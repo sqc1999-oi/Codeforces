@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8E014E71-E039-4561-AB12-67BA2FC5110C}</ProjectGuid>
-    <RootNamespace>RobotsTask</RootNamespace>
+    <ProjectGuid>{341A770A-E743-4E42-B213-6E662559628A}</ProjectGuid>
+    <RootNamespace>AlenasSchedule</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

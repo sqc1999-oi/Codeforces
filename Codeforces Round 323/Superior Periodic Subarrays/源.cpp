@@ -1,9 +1,10 @@
 #include <iostream>
 #include <algorithm>
 #include <cstring>
+#include <array>
 using namespace std;
-int a[200000], m[200000], cnt[200000];
-int gcd(int a,int b)
+array<int, 200000> a, m, sum, g;
+int gcd(int a, int b)
 {
 	return b == 0 ? a : gcd(b, a%b);
 }
@@ -14,24 +15,33 @@ int main()
 	cin >> n;
 	for (int i = 0; i < n; i++)
 		cin >> a[i];
-	for (int i = 1; i <= n; i++)
+	for (int i = 1; i < n; i++)
+		g[i] = gcd(i, n);
+	long long ans = 0;
+	for (int i = 1; i < n; i++)
 		if (n%i == 0)
 		{
-			memset(m, 0x00, sizeof m);
+			m.fill(0);
 			for (int j = 0; j < n; j++)
 				m[j%i] = max(m[j%i], a[j]);
 			int l = 0;
+			while (l < n && a[l] == m[l%i]) l++;
+			sum.fill(0);
+			if (l == n)
+				for (int j = 1; j < n; j++)
+					sum[j] += n;
 			while (l < n)
 			{
+				while (l < n && a[l] != m[l%i]) l++; 
 				int r = l;
-				while (r < n && a[r] == m[r%i]) r++;
-				int x = r - l;
-				cnt[i] += x*(x - 1) / 2;
-				l = r + 1;
+				while (a[r%n] == m[r%i]) r++;
+				for (int j = l; j < r; j++)
+					sum[j - l + 1] += r - j;
+				l = r;
 			}
+			for (int j = 1; j < n; j++)
+				if (g[j] == i)
+					ans += sum[j];
 		}
-	int ans = 0;
-	for (int i = 1; i <= n; i++)
-		ans += cnt[gcd(i, n)];
 	cout << ans;
 }
