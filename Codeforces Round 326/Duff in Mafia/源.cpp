@@ -18,16 +18,15 @@ namespace graph
 {
 	struct edge
 	{
-		int from, to, c, t;
+		int u, v, c, t;
 	};
 	vector<edge> e;
 	vector<int> g[50000];
 	void add_edge(int u, int v, int c, int t)
 	{
 		g[u].push_back(e.size());
-		e.push_back({ u,v,c,t });
 		g[v].push_back(e.size());
-		e.push_back({ v,u,c,t });
+		e.push_back({ u,v,c,t });
 	}
 	void init(int n, int m)
 	{
@@ -41,6 +40,10 @@ namespace graph
 			sort(g[i].begin(), g[i].end(), [](int a, int b) { return e[a].c < e[b].c; });
 	}
 }
+namespace two_sat
+{
+	vector<int> g[200000];
+}
 namespace tarjan
 {
 	int dfn[200000], low[200000], index, com[200000], cnt;
@@ -52,16 +55,16 @@ namespace tarjan
 		memset(vis, 0x00, sizeof vis);
 		index = cnt = 0;
 	}
-	void dfs(int u, vector<int> *g)
+	void dfs(int u)
 	{
-		dfn[u] = low[u] = ++index;
+		dfn[u] = low[u] = index++;
 		vis[u] = ins[u] = true;
 		s.push(u);
-		for (int v : g[u])
+		for (int v : two_sat::g[u])
 		{
 			if (!vis[v])
 			{
-				dfs(v, g);
+				dfs(v);
 				low[u] = min(low[u], low[v]);
 			}
 			else if (ins[v]) low[u] = min(low[u], dfn[v]);
@@ -82,17 +85,17 @@ namespace tarjan
 			cnt++;
 		}
 	}
-	void solve(int n, vector<int> *g)
+	void solve(int n)
 	{
 		_init();
 		for (int i = 0; i < n; i++)
 			if (!vis[i])
-				dfs(i, g);
+				dfs(i);
 	}
 }
 namespace two_sat
 {
-	vector<int> g[200000], ng[200000], op[200000];
+	vector<int> ng[200000];
 	int in[200000], res[200000];
 	void add_edge(int u, int v, bool fu, bool fv)
 	{
@@ -100,11 +103,14 @@ namespace two_sat
 	}
 	void init(int n, int m)
 	{
+		for (int i = 0; i < m; i++)
+		{
+			add_edge(i, i + m, true, true);
+			add_edge(i + m, i, false, false);
+		}
 		for (int i = 0; i < n; i++)
 		{
 			bool flag = false;
-			add_edge(graph::g[i][0], graph::g[i][0] + m, true, true);
-			add_edge(graph::g[i][0] + m, graph::g[i][0], false, false);
 			for (int j = 1; j < graph::g[i].size(); j++)
 			{
 				int x = graph::g[i][j], y = graph::g[i][j - 1];
@@ -116,12 +122,10 @@ namespace two_sat
 						add_edge(x, y, false, true);
 						add_edge(y, x, false, true);
 					}
-				add_edge(x, x + m, true, true);
-				add_edge(x + m, x, false, false);
-				add_edge(x + m - 1, x + m, true, true);
-				add_edge(x + m, x + m - 1, false, false);
-				add_edge(x + m - 1, x, true, false);
-				add_edge(x, x + m - 1, true, false);
+				add_edge(y + m, x + m, true, true);
+				add_edge(x + m, y + m, false, false);
+				add_edge(y + m, x, true, false);
+				add_edge(x, y + m, true, false);
 			}
 		}
 	}
@@ -138,14 +142,17 @@ namespace two_sat
 	void _clean(int n)
 	{
 		for (int i = 0; i < n; i++)
-			while (!g[i].empty() && g[i].back() == i)
+			while (!g[i].empty() && g[i].back() == (i ^ 1))
 				two_sat::g[i].pop_back();
 	}
 	bool check(int n, int mid)
 	{
-		using namespace tarjan;
+		using tarjan::com;
+		using tarjan::ch;
+		int x = 0;
+		for (auto i : g) x += i.size();
 		_init(n, mid);
-		solve(n, g);
+		tarjan::solve(n);
 		for (int i = 0; i < n / 2; i++)
 			if (com[i * 2] == com[i * 2 + 1])
 			{
@@ -154,12 +161,13 @@ namespace two_sat
 			}
 		for (int u = 0; u < n; u++)
 			for (int v : g[u])
-			{
-				ng[com[v]].push_back(com[u]);
-				in[com[u]]++;
-			}
+				if (com[u] != com[v])
+				{
+					ng[com[v]].push_back(com[u]);
+					in[com[u]]++;
+				}
 		queue<int> q, nq;
-		for (int i = 0; i < cnt; i++)
+		for (int i = 0; i < tarjan::cnt; i++)
 			if (in[i] == 0)
 			{
 				q.push(i);
@@ -178,13 +186,13 @@ namespace two_sat
 		}
 		while (!nq.empty())
 		{
-			int x = q.front();
-			q.pop();
+			int x = nq.front();
+			nq.pop();
 			if (res[x] != -1) continue;
 			for (int i : ch[com[x]]) res[i] = 1;
 			x ^= 1;
 			for (int i : ch[com[x]]) res[i] = 0;
-			q.push(com[x]);
+			nq.push(com[x]);
 			while (!q.empty())
 			{
 				int u = q.front();
@@ -208,14 +216,15 @@ int main()
 	cin >> n >> m;
 	graph::init(n, m);
 	two_sat::init(n, m);
-	int l = 1, r = 1e9, ans = -1;
+	int l = 0, r = 1e9, ans = -1;
 	vector<int> v;
-	while (l < r)
+	while (l <= r)
 	{
 		int mid = (l + r) / 2;
 		if (two_sat::check(m * 4, mid))
 		{
-			r = ans = mid - 1;
+			ans = mid;
+			r = mid - 1;
 			v.clear();
 			for (int i = 0; i < m; i++)
 				if (two_sat::res[i * 2])
@@ -224,6 +233,6 @@ int main()
 		else l = mid + 1;
 	}
 	if (ans == -1) common::exit();
-	cout << ans << ' ' << v.size() << endl;
-	for (int i : v) cout << i << ' ';
+	cout << "Yes" << endl << ans << ' ' << v.size() << endl;
+	for (int i : v) cout << i + 1 << ' ';
 }
