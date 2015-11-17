@@ -42,14 +42,14 @@ namespace graph
 }
 namespace two_sat
 {
-	vector<int> g[200000];
+	vector<int> g[300000];
 }
 namespace tarjan
 {
-	int dfn[200000], low[200000], index, com[200000], cnt;
-	bool vis[200000], ins[200000];
+	int dfn[300000], low[300000], index, com[300000], cnt;
+	bool vis[300000], ins[300000];
 	stack<int> s;
-	vector<int> ch[200000];
+	vector<int> ch[300000];
 	void _init()
 	{
 		memset(vis, 0x00, sizeof vis);
@@ -95,25 +95,29 @@ namespace tarjan
 }
 namespace two_sat
 {
-	vector<int> ng[200000];
-	int in[200000], res[200000];
+	vector<int> ng[300000];
+	int in[300000], res[300000];
+	bool vis[50000];
 	void add_edge(int u, int v, bool fu, bool fv)
 	{
 		g[u * 2 + 1 - fu].push_back(v * 2 + 1 - fv);
 	}
 	void init(int n, int m)
 	{
-		for (int i = 0; i < m; i++)
-		{
-			add_edge(i, i + m, true, true);
-			add_edge(i + m, i, false, false);
-		}
 		for (int i = 0; i < n; i++)
 		{
 			bool flag = false;
-			for (int j = 1; j < graph::g[i].size(); j++)
+			if (graph::g[i].empty()) continue;
+			for (int j = 0; j < graph::g[i].size(); j++)
 			{
-				int x = graph::g[i][j], y = graph::g[i][j - 1];
+				int x = graph::g[i][j];
+				int xx = vis[x] ? x + 2 * m : x + m;
+				add_edge(x, xx, true, true);
+				add_edge(xx, x, false, false);
+				if (j == 0) continue;
+				int y = graph::g[i][j - 1];
+				int yy = vis[y] ? y + 2 * m : y + m;
+				vis[xx] = vis[yy] = true;
 				if (graph::e[x].c == graph::e[y].c)
 					if (flag) common::exit();
 					else
@@ -122,11 +126,13 @@ namespace two_sat
 						add_edge(x, y, false, true);
 						add_edge(y, x, false, true);
 					}
-				add_edge(y + m, x + m, true, true);
-				add_edge(x + m, y + m, false, false);
-				add_edge(y + m, x, true, false);
-				add_edge(x, y + m, true, false);
+				add_edge(yy, xx, true, true);
+				add_edge(xx, yy, false, false);
+				add_edge(yy, x, true, false);
+				add_edge(x, yy, true, false);
 			}
+			for (int j : graph::g[i])
+				vis[j] = true;
 		}
 	}
 	void _init(int n, int mid)
@@ -149,8 +155,6 @@ namespace two_sat
 	{
 		using tarjan::com;
 		using tarjan::ch;
-		int x = 0;
-		for (auto i : g) x += i.size();
 		_init(n, mid);
 		tarjan::solve(n);
 		for (int i = 0; i < n / 2; i++)
@@ -221,7 +225,7 @@ int main()
 	while (l <= r)
 	{
 		int mid = (l + r) / 2;
-		if (two_sat::check(m * 4, mid))
+		if (two_sat::check(m * 6, mid))
 		{
 			ans = mid;
 			r = mid - 1;
