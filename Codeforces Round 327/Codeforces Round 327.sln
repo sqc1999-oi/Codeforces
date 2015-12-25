@@ -1,7 +1,6 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wizards' Duel", "Wizards' Duel\Wizards' Duel.vcxproj", "{3E32E6CA-DFE5-41B1-88F7-C0A4FD004623}"
 EndProject
@@ -12,6 +11,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chip 'n Dale Rescue Rangers", "Chip 'n Dale Rescue Rangers\Chip 'n Dale Rescue Rangers.vcxproj", "{24750D79-C04A-4119-939C-FFA3A8FFDC04}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Three States", "Three States\Three States.vcxproj", "{FA9C99D3-596A-41A1-BF07-F5782B64539E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Top Secret Task", "Top Secret Task\Top Secret Task.vcxproj", "{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +62,14 @@ Global
 		{FA9C99D3-596A-41A1-BF07-F5782B64539E}.Release|x64.Build.0 = Release|x64
 		{FA9C99D3-596A-41A1-BF07-F5782B64539E}.Release|x86.ActiveCfg = Release|Win32
 		{FA9C99D3-596A-41A1-BF07-F5782B64539E}.Release|x86.Build.0 = Release|Win32
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Debug|x64.ActiveCfg = Debug|x64
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Debug|x64.Build.0 = Debug|x64
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Debug|x86.ActiveCfg = Debug|Win32
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Debug|x86.Build.0 = Debug|Win32
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Release|x64.ActiveCfg = Release|x64
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Release|x64.Build.0 = Release|x64
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Release|x86.ActiveCfg = Release|Win32
+		{51C4DE87-ABE5-4E06-87FD-79680C6F1FA1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
