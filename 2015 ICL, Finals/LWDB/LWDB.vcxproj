@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A9176AA-38DD-4C1F-9CC7-A969D4C955B5}</ProjectGuid>
-    <RootNamespace>VikaandSegments</RootNamespace>
+    <ProjectGuid>{6A2298D5-772B-4341-B55A-8FA37E8B6120}</ProjectGuid>
+    <RootNamespace>LWDB</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
