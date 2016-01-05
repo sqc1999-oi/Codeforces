@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A9176AA-38DD-4C1F-9CC7-A969D4C955B5}</ProjectGuid>
-    <RootNamespace>VikaandSegments</RootNamespace>
+    <ProjectGuid>{D99FB067-7359-4B97-98BF-E35E0251D52B}</ProjectGuid>
+    <RootNamespace>CloseVertices</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
