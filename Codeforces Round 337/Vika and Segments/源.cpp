@@ -15,6 +15,7 @@ struct op
 };
 void sort_and_unite(vector<seg> &v)
 {
+	if (v.empty()) return;
 	sort(v.begin(), v.end(), [](const seg &a, const seg &b) { return a.a < b.a || a.a == b.a&&a.b0 < b.b0; });
 	int i = 0;
 	for (int j = 1; j < v.size(); j++)
@@ -22,6 +23,7 @@ void sort_and_unite(vector<seg> &v)
 		if (v[j].a == v[i].a&&v[j].b0 <= v[i].b1) v[i].b1 = max(v[i].b1, v[j].b1);
 		else v[++i] = v[j];
 	}
+	v.resize(i + 1);
 }
 long long calc_total(const vector<seg> &v)
 {
