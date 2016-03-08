@@ -9,7 +9,7 @@ int main()
 	auto a = new pair<int, int>[n];
 	for (int i = 0; i < n; i++)
 		cin >> a[i].first >> a[i].second;
-	int ans = 0;
+	long long ans = 0;
 	map<int, int> mx, my;
 	map<pair<int, int>, int> mz;
 	for (int i = 0; i < n; i++)
