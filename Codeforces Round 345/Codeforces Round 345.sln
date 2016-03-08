@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Watchmen", "Watchmen\Watchm
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Image Preview", "Image Preview\Image Preview.vcxproj", "{19CC992F-D02F-4641-93E8-A2895B189FB5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Table Compression", "Table Compression\Table Compression.vcxproj", "{391A326D-937F-4963-8539-20AF2E3ADBEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{19CC992F-D02F-4641-93E8-A2895B189FB5}.Release|x64.Build.0 = Release|x64
 		{19CC992F-D02F-4641-93E8-A2895B189FB5}.Release|x86.ActiveCfg = Release|Win32
 		{19CC992F-D02F-4641-93E8-A2895B189FB5}.Release|x86.Build.0 = Release|Win32
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Debug|x64.ActiveCfg = Debug|x64
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Debug|x64.Build.0 = Debug|x64
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Debug|x86.ActiveCfg = Debug|Win32
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Debug|x86.Build.0 = Debug|Win32
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Release|x64.ActiveCfg = Release|x64
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Release|x64.Build.0 = Release|x64
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Release|x86.ActiveCfg = Release|Win32
+		{391A326D-937F-4963-8539-20AF2E3ADBEB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
