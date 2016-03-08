@@ -29,7 +29,7 @@ int main()
 			for (int j = 0; j <= k; j++)
 				for (int k = 0; k <= s; k++)
 				{
-					if (k + i - j <= s)	f[cu][j + 1][k + i - j] = min(f[cu][j + 1][k + i - j], f[cu ^ 1][j][k] + q[i]);
+					if (k + i - j <= s) f[cu][j + 1][k + i - j] = min(f[cu][j + 1][k + i - j], f[cu ^ 1][j][k] + q[i]);
 					f[cu][j][k] = min(f[cu][j][k], f[cu ^ 1][j][k]);
 				}
 			cu ^= 1;
