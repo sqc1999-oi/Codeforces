@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Efim and Strange Grade", "E
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Anatoly and Cockroaches", "Anatoly and Cockroaches\Anatoly and Cockroaches.vcxproj", "{B773FEAD-99AF-4208-AEE2-D328B8330FAF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sasha and Array", "Sasha and Array\Sasha and Array.vcxproj", "{04B18908-CE9A-4791-9239-CB1BACA6F4E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{B773FEAD-99AF-4208-AEE2-D328B8330FAF}.Release|x64.Build.0 = Release|x64
 		{B773FEAD-99AF-4208-AEE2-D328B8330FAF}.Release|x86.ActiveCfg = Release|Win32
 		{B773FEAD-99AF-4208-AEE2-D328B8330FAF}.Release|x86.Build.0 = Release|Win32
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Debug|x64.ActiveCfg = Debug|x64
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Debug|x64.Build.0 = Debug|x64
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Debug|x86.ActiveCfg = Debug|Win32
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Debug|x86.Build.0 = Debug|Win32
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Release|x64.ActiveCfg = Release|x64
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Release|x64.Build.0 = Release|x64
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Release|x86.ActiveCfg = Release|Win32
+		{04B18908-CE9A-4791-9239-CB1BACA6F4E1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
