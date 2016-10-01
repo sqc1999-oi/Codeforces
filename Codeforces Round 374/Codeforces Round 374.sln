@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.25618.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "One-dimensional Japanese Crossword", "One-dimensional Japanese Crossword\One-dimensional Japanese Crossword.vcxproj", "{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Passwords", "Passwords\Passwords.vcxproj", "{43E37470-F390-4A41-BAA4-D8DE4BEFD301}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Journey", "Journey\Journey.vcxproj", "{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Maxim and Array", "Maxim and Array\Maxim and Array.vcxproj", "{39C16068-12DD-46DF-8737-473C6F9A7B3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Debug|x64.ActiveCfg = Debug|x64
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Debug|x64.Build.0 = Debug|x64
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Debug|x86.ActiveCfg = Debug|Win32
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Debug|x86.Build.0 = Debug|Win32
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Release|x64.ActiveCfg = Release|x64
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Release|x64.Build.0 = Release|x64
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Release|x86.ActiveCfg = Release|Win32
+		{3D15312E-B0D4-4810-8FEF-0F75B88E6DD3}.Release|x86.Build.0 = Release|Win32
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Debug|x64.ActiveCfg = Debug|x64
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Debug|x64.Build.0 = Debug|x64
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Debug|x86.ActiveCfg = Debug|Win32
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Debug|x86.Build.0 = Debug|Win32
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Release|x64.ActiveCfg = Release|x64
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Release|x64.Build.0 = Release|x64
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Release|x86.ActiveCfg = Release|Win32
+		{43E37470-F390-4A41-BAA4-D8DE4BEFD301}.Release|x86.Build.0 = Release|Win32
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Debug|x64.ActiveCfg = Debug|x64
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Debug|x64.Build.0 = Debug|x64
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Debug|x86.ActiveCfg = Debug|Win32
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Debug|x86.Build.0 = Debug|Win32
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Release|x64.ActiveCfg = Release|x64
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Release|x64.Build.0 = Release|x64
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Release|x86.ActiveCfg = Release|Win32
+		{7F418F1B-C0AD-4F38-A464-0BB01DE9C63B}.Release|x86.Build.0 = Release|Win32
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Debug|x64.ActiveCfg = Debug|x64
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Debug|x64.Build.0 = Debug|x64
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Debug|x86.ActiveCfg = Debug|Win32
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Debug|x86.Build.0 = Debug|Win32
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Release|x64.ActiveCfg = Release|x64
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Release|x64.Build.0 = Release|x64
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Release|x86.ActiveCfg = Release|Win32
+		{39C16068-12DD-46DF-8737-473C6F9A7B3C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
