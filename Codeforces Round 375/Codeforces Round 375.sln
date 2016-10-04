@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polycarp at the Radio", "Po
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lakes in Berland", "Lakes in Berland\Lakes in Berland.vcxproj", "{25B2D521-FE90-44C6-9341-75C270CC0751}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "One-Way Reform", "One-Way Reform\One-Way Reform.vcxproj", "{CF69A078-0E34-4599-A031-8AF9222152F3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "st-Spanning Tree", "st-Spanning Tree\st-Spanning Tree.vcxproj", "{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +55,22 @@ Global
 		{25B2D521-FE90-44C6-9341-75C270CC0751}.Release|x64.Build.0 = Release|x64
 		{25B2D521-FE90-44C6-9341-75C270CC0751}.Release|x86.ActiveCfg = Release|Win32
 		{25B2D521-FE90-44C6-9341-75C270CC0751}.Release|x86.Build.0 = Release|Win32
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Debug|x64.ActiveCfg = Debug|x64
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Debug|x64.Build.0 = Debug|x64
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Debug|x86.ActiveCfg = Debug|Win32
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Debug|x86.Build.0 = Debug|Win32
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Release|x64.ActiveCfg = Release|x64
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Release|x64.Build.0 = Release|x64
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Release|x86.ActiveCfg = Release|Win32
+		{CF69A078-0E34-4599-A031-8AF9222152F3}.Release|x86.Build.0 = Release|Win32
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Debug|x64.ActiveCfg = Debug|x64
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Debug|x64.Build.0 = Debug|x64
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Debug|x86.ActiveCfg = Debug|Win32
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Debug|x86.Build.0 = Debug|Win32
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Release|x64.ActiveCfg = Release|x64
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Release|x64.Build.0 = Release|x64
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Release|x86.ActiveCfg = Release|Win32
+		{994D34DD-74E4-4B81-AAF0-F900ADBC5E61}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
