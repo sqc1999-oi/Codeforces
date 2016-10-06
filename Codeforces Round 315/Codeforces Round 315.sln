@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.25618.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music", "Music\Music.csproj", "{CEB5CB02-C77B-47C4-92C2-0C56CB521A05}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Symmetric and Transitive", "Symmetric and Transitive\Symmetric and Transitive.vcxproj", "{D48E08B3-3732-4978-A698-24BF8590A3A8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "New Language", "New Language\New Language.vcxproj", "{B627153F-C90B-4F87-930C-7F3F89CFCFBA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sign Posts", "Sign Posts\Sign Posts.vcxproj", "{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,16 @@ Global
 		{B627153F-C90B-4F87-930C-7F3F89CFCFBA}.Release|x64.Build.0 = Release|x64
 		{B627153F-C90B-4F87-930C-7F3F89CFCFBA}.Release|x86.ActiveCfg = Release|Win32
 		{B627153F-C90B-4F87-930C-7F3F89CFCFBA}.Release|x86.Build.0 = Release|Win32
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Debug|x64.ActiveCfg = Debug|x64
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Debug|x64.Build.0 = Debug|x64
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Debug|x86.ActiveCfg = Debug|Win32
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Debug|x86.Build.0 = Debug|Win32
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Release|Any CPU.ActiveCfg = Release|Win32
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Release|x64.ActiveCfg = Release|x64
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Release|x64.Build.0 = Release|x64
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Release|x86.ActiveCfg = Release|Win32
+		{1CA892AA-8EE3-4FCA-BD0D-7959226000C4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
