@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.25618.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Multiplication Table", "Multiplication Table\Multiplication Table.vcxproj", "{F07FE4D9-D4A1-4AD0-BF09-E416A06F9EDE}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Points on Plane", "Points on Plane\Points on Plane.csproj", "{06702CC4-101D-4993-8F53-41BD72B50BF5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invariance of Tree", "Invariance of Tree\Invariance of Tree.csproj", "{4E885506-917F-490F-956A-D973C97A6D31}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flights for Regular Customers", "Flights for Regular Customers\Flights for Regular Customers.vcxproj", "{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,16 @@ Global
 		{4E885506-917F-490F-956A-D973C97A6D31}.Release|x64.Build.0 = Release|Any CPU
 		{4E885506-917F-490F-956A-D973C97A6D31}.Release|x86.ActiveCfg = Release|Any CPU
 		{4E885506-917F-490F-956A-D973C97A6D31}.Release|x86.Build.0 = Release|Any CPU
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Debug|x64.ActiveCfg = Debug|x64
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Debug|x64.Build.0 = Debug|x64
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Debug|x86.ActiveCfg = Debug|Win32
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Debug|x86.Build.0 = Debug|Win32
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Release|Any CPU.ActiveCfg = Release|Win32
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Release|x64.ActiveCfg = Release|x64
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Release|x64.Build.0 = Release|x64
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Release|x86.ActiveCfg = Release|Win32
+		{CD8857D0-9DDE-43AE-A2A4-A35D0B408944}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
