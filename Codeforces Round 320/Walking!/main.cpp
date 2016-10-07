@@ -1,12 +1,9 @@
 ﻿#include <iostream>
 #include <algorithm>
 #include <string>
-#include <vector>
 #include <list>
+#include <functional>
 using namespace std;
-const int N = 1e5;
-int l[N], r[N];
-bool flag[N];
 void push(const list<int> &v, const string &s, list<list<int>> &ll, list<list<int>> &lr, list<list<int>> &rl, list<list<int>> &rr)
 {
 	if (s[v.front()] == 'L')
@@ -16,66 +13,34 @@ void push(const list<int> &v, const string &s, list<list<int>> &ll, list<list<in
 		if (s[v.back()] == 'L') rl.push_back(v);
 		else rr.push_back(v);
 }
-int main()
+void combine_llrr(const string &s, list<list<int>> &ll, list<list<int>> &lr, list<list<int>> &rl, list<list<int>> &rr)
 {
-	ios::sync_with_stdio(false);
-	string s;
-	cin >> s;
-	int n = s.size();
-	l[n - 1] = r[n - 1] = n;
-	for (int i = n - 2; i >= 0; i--)
-	{
-		l[i] = s[i + 1] == 'L' ? i + 1 : l[i + 1];
-		r[i] = s[i + 1] == 'R' ? i + 1 : r[i + 1];
-	}
-	list<list<int>> ll, rr, lr, rl;
+	if (ll.size() < rr.size()) swap(ll, rr);
 	list<int> t;
-	for (int i = 0; i < n; i++)
-		if (!flag[i])
-		{
-			t.clear();
-			for (int j = i; j < n;)
-			{
-				flag[j] = true;
-				t.push_back(j);
-				j = s[j] == 'L' ? r[j] : l[j];
-			}
-			push(t, s, ll, lr, rl, rr);
-		}
-	int sum = ll.size() + lr.size() + rl.size() + rr.size() - 1;
-	auto &t1 = ll.size() > rr.size() ? ll : rr, t2 = ll.size() > rr.size() ? rr : ll;
-	if (!t1.empty())
+	for (; !ll.empty(); swap(ll, rr))
 	{
-		t = t1.front();
-		t1.pop_back();
-		while (ll.size() > 0)
-		{
-			t.splice(t.end(), t2.front());
-			t2.pop_front();
-			t.splice(t.end(), t1.front());
-			t1.pop_front();
-		}
-		push(t, s, ll, lr, rl, rr);
+		t.splice(t.end(), move(ll.front()));
+		ll.pop_front();
 	}
-	if (!lr.empty())
+	push(t, s, ll, lr, rl, rr);
+}
+void combine_lr_rl(list<list<int>> &li)
+{
+	if (!li.empty())
 	{
-		t = lr.front();
-		lr.pop_front();
-		for (auto &&x : lr) t.splice(t.begin(), x);
-		lr.clear();
-		lr.push_back(t);
+		auto t = move(li.front());
+		li.pop_front();
+		for (auto &&x : li) t.splice(t.end(), x);
+		li.clear();
+		li.push_back(move(t));
 	}
-	if (!rl.empty())
-	{
-		t = rl.front();
-		rl.pop_front();
-		for (auto &&x : rl) t.splice(t.begin(), x);
-		rl.clear();
-		rl.push_back(t);
-	}
+}
+list<int> combine_all(list<list<int>> &ll, list<list<int>> &lr, list<list<int>> &rl, list<list<int>> &rr)
+{
+	list<int> t;
 	if (!lr.empty() && !rl.empty())
 	{
-		t = lr.front();
+		t = move(lr.front());
 		if (t.back() < rl.front().back())
 		{
 			t.push_back(rl.front().back());
@@ -86,13 +51,63 @@ int main()
 			rl.front().push_back(t.back());
 			t.pop_back();
 		}
-		t.splice(t.end(), rl.back());
+		t.splice(t.end(), move(rl.front()));
 	}
-	else if (!lr.empty()) t = lr.back();
-	else if (!rl.empty()) t = rl.back();
-	if (!ll.empty()) t.splice(t.end(), ll.front());
-	else if (!rr.empty()) t.splice(t.end(), rl.front());
+	else if (!lr.empty()) t = move(lr.back());
+	else if (!rl.empty())
+	{
+		t = move(rl.back());
+		swap(ll, rr);
+	}
+	if (!ll.empty()) t.splice(t.end(), move(ll.front()));
+	else if (!rr.empty()) t.splice(t.begin(), move(rr.front()));
+	ll.clear();
+	lr.clear();
+	rl.clear();
+	rr.clear();
+	return t;
+}
+void generate(const string &s, list<list<int>> &ll, list<list<int>> &lr, list<list<int>> &rl, list<list<int>> &rr)
+{
+	const int N = 1e5;
+	static int l[N], r[N], f[N + 1];
+	int n = s.size();
+	l[n - 1] = r[n - 1] = n;
+	for (int i = n - 2; i >= 0; i--)
+	{
+		l[i] = s[i + 1] == 'L' ? i + 1 : l[i + 1];
+		r[i] = s[i + 1] == 'R' ? i + 1 : r[i + 1];
+	}
+	for (int i = 0; i <= n; i++) f[i] = i;
+	function<int(int)> find = [&find](int x) { return x == f[x] ? x : f[x] = find(f[x]); };
+	for (int i = 0; i < n; i++)
+		if (find(i) == i)
+		{
+			list<int> t;
+			int j = i;
+			while (true)
+			{
+				t.push_back(j);
+				int k = find(s[j] == 'L' ? r[j] : l[j]);
+				if (k == n) break;
+				f[k] = find(s[j] == 'L' ? r[k] : l[k]);
+				j = k;
+			}
+			push(t, s, ll, lr, rl, rr);
+		}
+}
+int main()
+{
+	ios::sync_with_stdio(false);
+	string s;
+	cin >> s;
+	list<list<int>> ll, lr, rl, rr;
+	generate(s, ll, lr, rl, rr);
+	int sum = ll.size() + lr.size() + rl.size() + rr.size() - 1;
+	combine_llrr(s, ll, lr, rl, rr);
+	combine_lr_rl(lr);
+	combine_lr_rl(rl);
 	cout << sum << endl;
-	for (int x : t) cout << x << ' ';
+	for (int x : combine_all(ll, lr, rl, rr)) cout << x + 1 << ' ';
 	cout << endl;
 }
