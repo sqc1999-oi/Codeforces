@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.25302.0
+VisualStudioVersion = 15.0.25807.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tavas and Pashmaks", "Tavas and Pashmaks\Tavas and Pashmaks.vcxproj", "{C5330DEE-6233-4E44-95F5-4381F453D4F3}"
 EndProject
