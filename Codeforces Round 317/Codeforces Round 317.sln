@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lengthening Sticks", "Lengt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimization", "Minimization\Minimization.csproj", "{51E970BB-6518-4E9B-8CA0-F4B34820B214}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CNF", "CNF\CNF.vcxproj", "{0F50AD1C-6B2E-4CCB-A994-A7B66ACE97E3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CNF 2", "CNF 2\CNF 2.vcxproj", "{0F50AD1C-6B2E-4CCB-A994-A7B66ACE97E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
