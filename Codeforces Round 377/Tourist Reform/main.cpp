@@ -31,13 +31,14 @@ void tarjan(int u, int fa, int fe)
 	}
 	if (low[u] >= ts[u])
 	{
-		int cnt = 0;
-		while (!s.empty() && s.top() != fa)
+		int cnt = 0, v;
+		do
 		{
-			cnt++;
-			ins[s.top()] = false;
+			v = s.top();
+			ins[v] = false;
 			s.pop();
-		}
+			cnt++;
+		} while (v != u);
 		if (cnt > ans)
 		{
 			ans = cnt;
@@ -47,14 +48,15 @@ void tarjan(int u, int fa, int fe)
 }
 void dfs(int u, int fa)
 {
-	static bool vis[N];
-	vis[u] = true;
+	static int st[N];
+	st[u] = 1;
 	for (const edge &e : g[u])
 		if (e.id != fa)
 		{
-			if (!vis[e.to]) dfs(e.to, e.id);
-			res[e.id] = { e.to,u };
+			if (st[e.to] != 2) res[e.id] = { e.to,u };
+			if (st[e.to] == 0) dfs(e.to, e.id);
 		}
+	st[u] = 2;
 }
 int main()
 {
