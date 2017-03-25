@@ -1,0 +1,37 @@
+image: Visual Studio 2017
+platform:
+  - x86
+  - x64
+environment:
+  matrix:
+    - project_name: 2015 ICL, Finals\2015 ICL, Finals.sln
+    - project_name: Codeforces Round 107\Codeforces Round 107.sln
+    - project_name: Codeforces Round 299\Codeforces Round 299.sln
+    - project_name: Codeforces Round 315\Codeforces Round 315.sln
+    - project_name: Codeforces Round 316\Codeforces Round 316.sln
+    - project_name: Codeforces Round 317\Codeforces Round 317.sln
+    - project_name: Codeforces Round 318\Codeforces Round 318.sln
+    - project_name: Codeforces Round 319\Codeforces Round 319.sln
+    - project_name: Codeforces Round 320\Codeforces Round 320.sln
+    - project_name: Codeforces Round 321\Codeforces Round 321.sln
+    - project_name: Codeforces Round 322\Codeforces Round 322.sln
+    - project_name: Codeforces Round 323\Codeforces Round 323.sln
+    - project_name: Codeforces Round 324\Codeforces Round 324.sln
+    - project_name: Codeforces Round 325\Codeforces Round 325.sln
+    - project_name: Codeforces Round 326\Codeforces Round 326.sln
+    - project_name: Codeforces Round 327\Codeforces Round 327.sln
+    - project_name: Codeforces Round 337\Codeforces Round 337.sln
+    - project_name: Codeforces Round 345\Codeforces Round 345.sln
+    - project_name: Codeforces Round 368\Codeforces Round 368.sln
+    - project_name: Codeforces Round 369\Codeforces Round 369.sln
+    - project_name: Codeforces Round 373\Codeforces Round 373.sln
+    - project_name: Codeforces Round 374\Codeforces Round 374.sln
+    - project_name: Codeforces Round 375\Codeforces Round 375.sln
+    - project_name: Codeforces Round 376\Codeforces Round 376.sln
+    - project_name: Codeforces Round 377\Codeforces Round 377.sln
+    - project_name: Codeforces Round 378\Codeforces Round 378.sln
+    - project_name: Codeforces Round Pi\Codeforces Round Pi.sln
+    - project_name: Croc Champ 2013 - Round 2\Croc Champ 2013 - Round 2.sln
+build:
+  project: $(project_name)
+  parallel: true
